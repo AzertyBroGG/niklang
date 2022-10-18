@@ -20,10 +20,10 @@ class NikitosLanguage():
                 pass
             elif "ВЫВОД" in code:
                 code = code.replace("ВЫВОД", "")
-                dblq = '("' in code and ')"' in code
+                dblq = '("' in code and '")' in code
                 sgq = '(\'' in code and '\')' in code
                 if dblq or sgq :
-                  code = code.replace('(', '').replace(')', '')
+                  code = code.replace('(\'', '').replace('\')', '').replace('("', '').replace('")', '')
                   result += code +  '\n' 
                 else:
                   result = self.on_error(c, code)
